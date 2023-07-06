@@ -6,21 +6,23 @@ Jag har skapat det här projektet som ett datadrivet tillvägagångssätt för d
 
 Skriptet går igenom varje bok och kapitel i Bibeln listade på webbplatsen och samlar alla verser. Den resulterande strukturen av data ser ut så här:
 
+```plaintext
 Bibeln
 ├── GT (Gamla testamentet)
-│ ├── Bok 1
-│ │ ├── Kapitel 1
-│ │ │ ├── Vers 1
-│ │ │ ├── Vers 2
-│ │ │ └── ...
-│ │ ├── Kapitel 2
-│ │ └── ...
-│ ├── Bok 2
-│ └── ...
+│   ├── Bok 1
+│   │   ├── Kapitel 1
+│   │   │   ├── Vers 1
+│   │   │   ├── Vers 2
+│   │   │   └── ...
+│   │   ├── Kapitel 2
+│   │   └── ...
+│   ├── Bok 2
+│   └── ...
 ├── NT (Nya testamentet)
-│ └── ...
+│   └── ...
 └── Apokr (Apokryfer)
-└── ...
+    └── ...
+
 
 
 ## Särskilda fall
