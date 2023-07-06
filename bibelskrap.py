@@ -7,7 +7,6 @@ from selenium.webdriver.firefox.options import Options
 
 from bs4 import BeautifulSoup
 
-# Create Firefox options and set headless mode
 options = Options()
 options.headless = True
 
@@ -46,10 +45,6 @@ def get_page_content(book, book_content, driver, chapter):
                 verse_text = '<SAMMANSLAGENVERS>'
             else:
                 verse_text = ''
-    
-
-
-        
 
         content.append({verse_num: verse_text})
 
