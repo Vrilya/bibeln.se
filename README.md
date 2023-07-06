@@ -29,9 +29,9 @@ Bibeln
 
 Under processen stöter vi på vissa speciella fall med verser, däribland saknade, sammanslagna och skadade verser. Jag har hanterat dessa på följande sätt:
 
-- **Saknade verser**: Verser som saknas i texten är markerade som '<VERSSAKNAS>'.
-- **Sammanslagna verser**: Sammanslagna verser är markerade som '<SAMMANSLAGENVERS>'.
-- **Skadade verser**: Skadade verser, där det ursprungliga innehållet inte är klart eller komplett, är markerade som '<SKADADVERS>'.
+- **Saknade verser**: Verser som saknas i texten är markerade som &lt;VERSSAKNAS&gt;.
+- **Sammanslagna verser**: Sammanslagna verser är markerade som &lt;SAMMANSLAGENVERS&gt;.
+- **Skadade verser**: Skadade verser, där det ursprungliga innehållet inte är klart eller komplett, är markerade som &lt;SKADADVERS&gt;.
 
 ## Användning av .json-filen
 
