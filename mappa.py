@@ -21,7 +21,7 @@ book_mapping = {
 }
 
 # Läs in .json-filen
-with open('bibeln.json', 'r', encoding='utf-8') as file:
+with open('bibeln.json', 'r') as file:
     data = json.load(file)
 
 # Funktion för att ersätta förkortningarna i JSON-datastrukturen
@@ -40,5 +40,6 @@ def replace_abbreviations(obj):
 replace_abbreviations(data)
 
 # Spara den uppdaterade JSON-filen
-with open('bibel_sv.json', 'w') as file:
+with open('bibeln_sv.json', 'w') as file:
     json.dump(data, file, ensure_ascii=False, indent=4)
+
