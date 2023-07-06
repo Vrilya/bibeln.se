@@ -1,8 +1,8 @@
 # Projekt: Webbskrapning av Bibelverser
 
-Jag har skapat det här projektet som ett datadrivet tillvägagångssätt för diskussioner och debatter om religion. Som ateist, finner jag det nyttigt att ha en solid förståelse för Bibeln när jag diskuterar med kristna. Långsamma webbplatser och online-resurser kan vara ett hinder för snabb referering och åtkomst till bibelverser under dessa diskussioner. För att lösa detta, har jag skrivit ett Python-skript som skrapar texten i Bibeln från https://bibeln.se. Skriptet använder Selenium och BeautifulSoup för att navigera på webbplatsen och tolka innehållet. Det lagrar denna data i en lättanvänd JSON-fil.
+Jag har skapat det här pythonprojektet som ett datadrivet tillvägagångssätt för diskussioner och debatter om religion. Som ateist, finner jag det nyttigt att ha en solid förståelse för Bibeln när jag diskuterar med kristna. Långsamma webbplatser och online-resurser kan vara ett hinder för snabb referering och åtkomst till bibelverser under dessa diskussioner. För att lösa detta, har jag skrivit ett Python-skript som skrapar texten i Bibeln från https://bibeln.se. Skriptet använder Selenium och BeautifulSoup för att navigera på webbplatsen och tolka innehållet. Det lagrar denna data i en lättanvänd JSON-fil.
 
-## Verktyg och teknologier
+## Verktyg
 
 Skriptet använder `geckodriver`, som är en proxy för att använda W3C WebDriver-kompatibla klienter för att interagera med Gecko-baserade webbläsare, i det här fallet Firefox.
 
