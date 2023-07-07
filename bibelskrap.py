@@ -28,11 +28,10 @@ def get_page_content(book, book_content, driver, chapter):
             verse_div = verse.find('div', class_='bt-tc txt')
             if verse_div is None:
                 verse_div = verse.find('div', class_='bt-tc po')
-            if verse_div is None:  # Letar efter 'div', class_='bt-tc fni' om de tidigare sökningarna misslyckas
+            if verse_div is None:
                 verse_div = verse.find('div', class_='bt-tc fni')
     
             if verse_div.find('span', class_='bt-info damaged'):
-                # Extract the text within the paragraphs, if present, otherwise output '<SKADADVERS>'
                 p_text = " ".join([p.text for p in verse_div.find_all('p')]).strip()
                 verse_text = p_text if p_text != '' else '<SKADADVERS>'
             else:
