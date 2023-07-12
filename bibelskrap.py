@@ -11,43 +11,37 @@ options = Options()
 options.headless = True
 
 def get_page_content(book, book_content, driver, chapter):
-    # Vänta tills sidan laddas helt
     wait = WebDriverWait(driver, 10)
     wait.until(EC.presence_of_all_elements_located((By.CLASS_NAME, 'bt-dbl')))
 
     soup = BeautifulSoup(driver.page_source, 'html.parser')
     bible_text = soup.find('div', class_='bt-bible bt-bible-read')
 
-    # Lägg till varje vers
     current_chapter = "Chapter " + str(chapter)
     content = []
     for verse in bible_text.find_all('div', class_='bt-dbl'):
         verse_num = verse.find('span', class_='v').text.strip()
-    
-        try:
-            verse_div = verse.find('div', class_='bt-tc txt')
-            if verse_div is None:
-                verse_div = verse.find('div', class_='bt-tc po')
-            if verse_div is None:
-                verse_div = verse.find('div', class_='bt-tc fni')
-    
+        verse_text = ""
+
+        for verse_div in verse.find_all('div', class_=lambda x: x in ['bt-tc txt', 'bt-tc po', 'bt-tc fni']):
             if verse_div.find('span', class_='bt-info damaged'):
                 p_text = " ".join([p.text for p in verse_div.find_all('p')]).strip()
-                verse_text = p_text if p_text != '' else '<SKADADVERS>'
+                verse_text += p_text if p_text != '' else '<SKADADVERS>'
             else:
-                verse_text = verse_div.text.strip()
-    
-        except AttributeError:
-            if 'excluded' in verse.get('class', []):
-                verse_text = '<VERSSAKNAS>'
-            elif 'merged' in verse.get('class', []):
-                verse_text = '<SAMMANSLAGENVERS>'
-            else:
-                verse_text = ''
+                verse_text += " " + verse_div.text.strip()
+
+        verse_text = verse_text.strip()
+
+        if 'excluded' in verse.get('class', []):
+            verse_text = '<VERSSAKNAS>'
+        elif 'merged' in verse.get('class', []):
+            verse_text = '<SAMMANSLAGENVERS>'
 
         content.append({verse_num: verse_text})
 
     book_content[book].append({current_chapter: content})
+
+
 
 # Läs in bibelböckerna från bibelboker2.json
 with open("bibelbocker.json", "r") as file:
